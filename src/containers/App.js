@@ -13,6 +13,8 @@ class App extends Component {
     this.state = {
       cats: [],
       searchfield: '',
+      colorOne: '#f6f948',
+      colorTwo: '#be47f5',
     }
   }
 
@@ -22,55 +24,43 @@ class App extends Component {
       .then(users => { this.setState({ cats: users }) });
   }
 
+  makeBackgroundChange = () => {
+    const css = document.querySelector("h3");
+    const body = document.getElementById("root");
+    body.style.background = "linear-gradient(to right, " + this.state.colorOne + ", " + this.state.colorTwo + ")";
+    css.textContent = this.state.colorOne + " 👈🏻 ColorCode 👉🏻 " + this.state.colorTwo;
+  }
+
+  onColorOneChange = (event) => {
+    this.setState({ colorOne: event.target.value })
+    this.makeBackgroundChange();
+  }
+
+  onColorTwoChange = (event) => {
+    this.setState({ colorTwo: event.target.value })
+    this.makeBackgroundChange();
+  }
+
+  onClickChange = () => {
+    const letters = "0123456789ABCDEF";
+    let color3 = "#";
+    let color4 = "#";
+    for (let i = 0; i < 6; i++) {
+      color3 += letters[Math.floor(Math.random() * 16)];
+      color4 += letters[Math.floor(Math.random() * 16)];
+    }
+
+    this.setState({ colorOne: color3 });
+    this.setState({ colorTwo: color4 });
+    document.querySelector(".color1").style.background = color4;
+    document.querySelector(".color2").style.background = color3;
+    document.querySelector(".button1").style.background = color3;
+    this.makeBackgroundChange();
+  }
+
   onSearchChange = (event) => {
     this.setState({ searchfield: event.target.value })
     //console.log(event.target.value)
-  }
-
-  setColorSelectChange = () => {
-    let css = document.querySelector("h3");
-    let color1 = document.querySelector(".color1");
-    let color2 = document.querySelector(".color2");
-    let body = document.getElementById("root");
-
-    function setGradient() {
-      body.style.background = "linear-gradient(to right, " + color1.value + ", " + color2.value + ")";
-      css.textContent = color1.value + " 👈🏻 ColorCode 👉🏻 " + color2.value;
-    }
-
-    setGradient();
-  }
-
-  setClickChange = () => {
-    let css = document.querySelector("h3");
-    let color1 = document.querySelector(".color1");
-    let color2 = document.querySelector(".color2");
-    const button1 = document.querySelector(".button1");
-    let body = document.getElementById("root");
-    let letters = "0123456789ABCDEF";
-
-    function setGradient() {
-      body.style.background = "linear-gradient(to right, " + color1.value + ", " + color2.value + ")";
-      css.textContent = color1.value + " 👈🏻 ColorCode 👉🏻 " + color2.value;
-    }
-
-    function randomColor() {
-      let color3 = "#";
-      let color4 = "#";
-      for (let i = 0; i < 6; i++) {
-        color3 += letters[Math.floor(Math.random() * 16)];
-        color4 += letters[Math.floor(Math.random() * 16)];
-      }
-      body.style.background = "linear-gradient(to right, " + color3 + ", " + color4 + ")";
-      color1.style.background = color4;
-      color2.style.background = color3;
-      button1.style.background = color4;
-      color1.setAttribute("value", color3);
-      color2.setAttribute("value", color4);
-      css.textContent = color3 + " 👈🏻 ColorCode 👉🏻 " + color4;
-    }
-    setGradient();
-    randomColor();
   }
 
   render() {
@@ -78,6 +68,7 @@ class App extends Component {
     const filteredCats = cats.filter(cat =>
       cat.name.toLowerCase().includes(searchfield.toLowerCase())
     )
+    document.getElementById("root").style.background = "linear-gradient(to right, " + this.state.colorOne + ", " + this.state.colorTwo + ")";
     // const newColor = cats.
     return !cats.length ?
       <p>..</p> :
@@ -86,8 +77,11 @@ class App extends Component {
           <h2>{new Date().toLocaleTimeString()} </h2>
           <h1 className='f1'>MY CATS</h1>
           <Background
-            clickChange={this.setClickChange}
-            colorSelectChange={this.setColorSelectChange}
+            clickChange={this.onClickChange}
+            colorOneChange={this.onColorOneChange}
+            colorTwoChange={this.onColorTwoChange}
+            colorOne={this.state.colorOne}
+            colorTwo={this.state.colorTwo}
           />
           <SearchBox searchChange={this.onSearchChange} />
           <Scroll>

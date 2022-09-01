@@ -6,7 +6,7 @@ function Card({ name, email, id }) {
       <img alt='robots' src={`https://robohash.org/${id}?set=set4`} width='200' height='200' />
       <div>
         <h3>{name}</h3>
-        <p>{email}</p>
+        <p className=''>{email}</p>
       </div>
     </div >
   );

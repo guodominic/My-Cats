@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom';
 import App from './containers/App';
 import 'tachyons';
 
-ReactDOM.render(<App />, document.getElementById('root'))
+const myCats = document.getElementById('root');
+ReactDOM.render(<App />, myCats)
 setInterval(() => {
-    ReactDOM.render(<App />, document.getElementById('root'));
+    ReactDOM.render(<App />, myCats);
 }, 1000);
 
 // registerServiceWorker();

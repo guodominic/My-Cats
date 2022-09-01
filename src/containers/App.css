@@ -26,5 +26,12 @@
     }
 
     body{
-        background: linear-gradient(to right, orange, rgb(235, 57, 226) 100%); 
+        padding-left: 10px;
+        padding-right: 10px;
+        background-color: rgb(252, 208, 63); 
+    }
+
+    .root {
+        border-radius: 7%;
+        box-shadow: inset 0px 0px 10px 0px #f3f0be;
     }

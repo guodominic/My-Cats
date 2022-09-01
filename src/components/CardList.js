@@ -6,6 +6,9 @@ function CardList({ cats }) {
     <div>
       {
         cats.map((user, i) => {
+          /*           if (true) {
+                      throw new Error('CardList is not working!!');
+                    } */
           return (
             <Card
               key={i}
