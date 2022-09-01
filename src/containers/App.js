@@ -33,11 +33,13 @@ class App extends Component {
 
   onColorOneChange = (event) => {
     this.setState({ colorOne: event.target.value })
+    document.querySelector(".color2").style.background = this.state.colorOne;
     this.makeBackgroundChange();
   }
 
   onColorTwoChange = (event) => {
     this.setState({ colorTwo: event.target.value })
+    document.querySelector(".color1").style.background = this.state.colorTwo;
     this.makeBackgroundChange();
   }
 
@@ -54,7 +56,6 @@ class App extends Component {
     this.setState({ colorTwo: color4 });
     document.querySelector(".color1").style.background = color4;
     document.querySelector(".color2").style.background = color3;
-    document.querySelector(".button1").style.background = color3;
     this.makeBackgroundChange();
   }
 
@@ -68,14 +69,16 @@ class App extends Component {
     const filteredCats = cats.filter(cat =>
       cat.name.toLowerCase().includes(searchfield.toLowerCase())
     )
+    /*     document.querySelector(".color1").style.background = this.state.colorTwo;
+        document.querySelector(".color2").style.background = this.state.colorOne; */
     document.getElementById("root").style.background = "linear-gradient(to right, " + this.state.colorOne + ", " + this.state.colorTwo + ")";
     // const newColor = cats.
     return !cats.length ?
       <p>..</p> :
       (
         <div className='tc'>
-          <h2>{new Date().toLocaleTimeString()} </h2>
-          <h1 className='f1'>MY CATS</h1>
+          <h2 className='white f4'>{new Date().toLocaleTimeString()} </h2>
+          <h1 className='f1 white'>MY CATS</h1>
           <Background
             clickChange={this.onClickChange}
             colorOneChange={this.onColorOneChange}
