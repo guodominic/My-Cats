@@ -4,6 +4,7 @@ import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
 import './App.css';
 import Background from '../components/Background';
+import ErrorBoundary from '../components/ErrorBoundry';
 
 
 class App extends Component {
@@ -44,6 +45,7 @@ class App extends Component {
     let css = document.querySelector("h3");
     let color1 = document.querySelector(".color1");
     let color2 = document.querySelector(".color2");
+    const button1 = document.querySelector(".button1");
     let body = document.getElementById("root");
     let letters = "0123456789ABCDEF";
 
@@ -89,7 +91,9 @@ class App extends Component {
           />
           <SearchBox searchChange={this.onSearchChange} />
           <Scroll>
-            <CardList cats={filteredCats} />
+            <ErrorBoundary>
+              <CardList cats={filteredCats} />
+            </ErrorBoundary>
           </Scroll>
         </div>
       );
