@@ -11,9 +11,8 @@ function CardList({ cats }) {
                     } */
           return (
             <Card
-              key={i}
-              id={cats[i].id} s
-              name={cats[i].name}
+              id={cats[i].id}
+              name={cats[i].name.substring(0, 14)}
               email={cats[i].email}
             />
           );

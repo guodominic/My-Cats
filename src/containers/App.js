@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/users')
+    fetch('https://jsonplaceholder.typicode.com/comments')
       .then(response => response.json())
       .then(users => { this.setState({ cats: users }) });
   }
