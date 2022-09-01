@@ -1,2 +1,8 @@
-# My-Cats
-Hello
+# MyCats
+
+A cool website for MyCats
+
+
+1. Clone this repo
+2. Run `npm install`
+3. Run `npm start`
