@@ -61,7 +61,6 @@ class App extends Component {
 
   onSearchChange = (event) => {
     this.setState({ searchfield: event.target.value })
-    //console.log(event.target.value)
   }
 
   render() {
@@ -69,10 +68,9 @@ class App extends Component {
     const filteredCats = cats.filter(cat =>
       cat.name.toLowerCase().includes(searchfield.toLowerCase())
     )
-    /*     document.querySelector(".color1").style.background = this.state.colorTwo;
-        document.querySelector(".color2").style.background = this.state.colorOne; */
+
     document.getElementById("root").style.background = "linear-gradient(to right, " + this.state.colorOne + ", " + this.state.colorTwo + ")";
-    // const newColor = cats.
+
     return !cats.length ?
       <p>..</p> :
       (

@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/My-Cats/static/css/main.718fc677.chunk.css",
-    "main.js": "/My-Cats/static/js/main.3429e98f.chunk.js",
-    "main.js.map": "/My-Cats/static/js/main.3429e98f.chunk.js.map",
+    "main.css": "/My-Cats/static/css/main.e8dbce0d.chunk.css",
+    "main.js": "/My-Cats/static/js/main.08095a8b.chunk.js",
+    "main.js.map": "/My-Cats/static/js/main.08095a8b.chunk.js.map",
     "runtime-main.js": "/My-Cats/static/js/runtime-main.a31cbb52.js",
     "runtime-main.js.map": "/My-Cats/static/js/runtime-main.a31cbb52.js.map",
     "static/css/2.75261d94.chunk.css": "/My-Cats/static/css/2.75261d94.chunk.css",
@@ -10,7 +10,7 @@
     "static/js/2.870b8629.chunk.js.map": "/My-Cats/static/js/2.870b8629.chunk.js.map",
     "index.html": "/My-Cats/index.html",
     "static/css/2.75261d94.chunk.css.map": "/My-Cats/static/css/2.75261d94.chunk.css.map",
-    "static/css/main.718fc677.chunk.css.map": "/My-Cats/static/css/main.718fc677.chunk.css.map",
+    "static/css/main.e8dbce0d.chunk.css.map": "/My-Cats/static/css/main.e8dbce0d.chunk.css.map",
     "static/js/2.870b8629.chunk.js.LICENSE.txt": "/My-Cats/static/js/2.870b8629.chunk.js.LICENSE.txt",
     "static/media/App.css": "/My-Cats/static/media/Candy Shop.b1b53aab.woff"
   },
@@ -18,7 +18,7 @@
     "static/js/runtime-main.a31cbb52.js",
     "static/css/2.75261d94.chunk.css",
     "static/js/2.870b8629.chunk.js",
-    "static/css/main.718fc677.chunk.css",
-    "static/js/main.3429e98f.chunk.js"
+    "static/css/main.e8dbce0d.chunk.css",
+    "static/js/main.08095a8b.chunk.js"
   ]
 }
