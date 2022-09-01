@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/My-Cats/static/css/main.3eeafe25.chunk.css",
+    "main.js": "/My-Cats/static/js/main.ad1afb36.chunk.js",
+    "main.js.map": "/My-Cats/static/js/main.ad1afb36.chunk.js.map",
+    "runtime-main.js": "/My-Cats/static/js/runtime-main.a31cbb52.js",
+    "runtime-main.js.map": "/My-Cats/static/js/runtime-main.a31cbb52.js.map",
+    "static/css/2.75261d94.chunk.css": "/My-Cats/static/css/2.75261d94.chunk.css",
+    "static/js/2.31454395.chunk.js": "/My-Cats/static/js/2.31454395.chunk.js",
+    "static/js/2.31454395.chunk.js.map": "/My-Cats/static/js/2.31454395.chunk.js.map",
+    "index.html": "/My-Cats/index.html",
+    "static/css/2.75261d94.chunk.css.map": "/My-Cats/static/css/2.75261d94.chunk.css.map",
+    "static/css/main.3eeafe25.chunk.css.map": "/My-Cats/static/css/main.3eeafe25.chunk.css.map",
+    "static/js/2.31454395.chunk.js.LICENSE.txt": "/My-Cats/static/js/2.31454395.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/My-Cats/static/media/Candy Shop.b1b53aab.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a31cbb52.js",
+    "static/css/2.75261d94.chunk.css",
+    "static/js/2.31454395.chunk.js",
+    "static/css/main.3eeafe25.chunk.css",
+    "static/js/main.ad1afb36.chunk.js"
+  ]
+}
