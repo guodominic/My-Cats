@@ -62,6 +62,7 @@ class App extends Component {
       body.style.background = "linear-gradient(to right, " + color3 + ", " + color4 + ")";
       color1.style.background = color4;
       color2.style.background = color3;
+      button1.style.background = color4;
       color1.setAttribute("value", color3);
       color2.setAttribute("value", color4);
       css.textContent = color3 + " 👈🏻 ColorCode 👉🏻 " + color4;
