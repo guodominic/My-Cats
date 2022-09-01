@@ -17,7 +17,7 @@ function Background({ clickChange, colorOneChange, colorTwoChange, colorOne, col
                 type="color"
                 value={colorTwo}
                 onChange={colorTwoChange} />
-            <h3></h3>
+            <h3 className="white f6"></h3>
         </div>
     )
 };
