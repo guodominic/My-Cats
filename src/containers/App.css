@@ -1,0 +1,30 @@
+    @font-face {
+    font-family: 'Candy Shop Regular';
+    font-style: normal;
+    font-weight: normal;
+
+    src: local('Candy Shop Regular'), url('Candy Shop.woff') format('woff');
+    }
+
+    h1{
+        font-family: 'Candy Shop Regular';
+        color: white;
+     
+    }
+
+    h2 {
+        color: white;
+    }
+
+    .button1, .color1, .color2{
+        color: grey;
+        
+    }
+
+    h3{
+        color: white;
+    }
+
+    body{
+        background: linear-gradient(to right, orange, rgb(235, 57, 226) 100%); 
+    }
