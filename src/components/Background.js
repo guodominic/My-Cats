@@ -1,19 +1,19 @@
 
 function Background({ clickChange, colorOneChange, colorTwoChange, colorOne, colorTwo }) {
     return (
-        <div >
+        <div className=" br3 b--white purple dim">
             <input
-                className="color1 br3 b--white"
+                className="color1"
                 type="color"
                 value={colorOne}
                 onChange={colorOneChange} />
             <input
-                className='button1 pt1 br3 ba b--white purple'
+                className='button1 pt1 ba'
                 type='button'
                 value="Random Background"
                 onClick={clickChange} />
             <input
-                className="color2 br3 b--white"
+                className="color2"
                 type="color"
                 value={colorTwo}
                 onChange={colorTwoChange} />
