@@ -27,7 +27,7 @@ class App extends Component {
   makeBackgroundChange = () => {
     const css = document.querySelector("h3");
     const body = document.getElementById("root");
-    body.style.background = "linear-gradient(to right, " + this.state.colorOne + ", " + this.state.colorTwo + ")";
+    body.style.background = "linear-gradient(to right top, " + this.state.colorOne + ", " + this.state.colorTwo + ")";
     css.textContent = this.state.colorOne + " 👈🏻 ColorCode 👉🏻 " + this.state.colorTwo;
   }
 
@@ -69,7 +69,7 @@ class App extends Component {
       cat.name.toLowerCase().includes(searchfield.toLowerCase())
     )
 
-    document.getElementById("root").style.background = "linear-gradient(to right, " + this.state.colorOne + ", " + this.state.colorTwo + ")";
+    document.getElementById("root").style.background = "linear-gradient(to right top, " + this.state.colorOne + ", " + this.state.colorTwo + ")";
 
     return !cats.length ?
       <p>..</p> :

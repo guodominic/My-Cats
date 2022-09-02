@@ -13,7 +13,7 @@ function CardList({ cats }) {
             <Card
               id={cats[i].id}
               name={cats[i].name.substring(0, 14)}
-              email={cats[i].email}
+              email={cats[i].email.substring(0, 22)}
             />
           );
         })
