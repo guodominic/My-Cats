@@ -1,10 +1,9 @@
 
 function Background({ clickChange, colorOneChange, colorTwoChange, colorOne, colorTwo }) {
     return (
-        <div className=" br3 b--white purple dim">
+        <div className="br3 shadow-5">
             <input
-
-                className="color1 br3 b--white dim pointer"
+                className="color1 br3 b--white dim pointer measure-wide"
                 type="color"
                 value={colorOne}
                 onChange={colorOneChange} />

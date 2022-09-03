@@ -77,14 +77,16 @@ class App extends Component {
         <div className='tc'>
           <h2 className='white f4'>{new Date().toLocaleTimeString()} </h2>
           <h1 className='f1 white'>MY CATS</h1>
-          <Background
-            clickChange={this.onClickChange}
-            colorOneChange={this.onColorOneChange}
-            colorTwoChange={this.onColorTwoChange}
-            colorOne={this.state.colorOne}
-            colorTwo={this.state.colorTwo}
-          />
-          <SearchBox searchChange={this.onSearchChange} />
+          <div style={{ display: 'inline-block' }}>
+            <Background
+              clickChange={this.onClickChange}
+              colorOneChange={this.onColorOneChange}
+              colorTwoChange={this.onColorTwoChange}
+              colorOne={this.state.colorOne}
+              colorTwo={this.state.colorTwo}
+            />
+          </div>
+          <SearchBox className='tcenter' searchChange={this.onSearchChange} />
           <Scroll>
             <ErrorBoundary>
               <CardList cats={filteredCats} />
