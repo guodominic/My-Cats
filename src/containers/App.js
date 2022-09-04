@@ -26,7 +26,7 @@ class App extends Component {
 
   makeBackgroundChange = () => {
     const css = document.querySelector("h3");
-    const body = document.getElementById("root");
+    const body = document.querySelector("body");
     body.style.background = "linear-gradient(to right top, " + this.state.colorOne + ", " + this.state.colorTwo + ")";
     css.textContent = this.state.colorOne + " 👈🏻 ColorCode 👉🏻 " + this.state.colorTwo;
   }
@@ -69,15 +69,16 @@ class App extends Component {
       cat.name.toLowerCase().includes(searchfield.toLowerCase())
     )
 
-    document.getElementById("root").style.background = "linear-gradient(to right top, " + this.state.colorOne + ", " + this.state.colorTwo + ")";
+    document.querySelector("body").style.background = "linear-gradient(to right, " + this.state.colorOne + ", " + this.state.colorTwo + ")";
 
     return !cats.length ?
-      <p>..</p> :
+      <p>...</p> :
       (
-        <div className='tc'>
+        <div className='tc pa1'>
           <h2 className='white f4'>{new Date().toLocaleTimeString()} </h2>
           <h1 className='f1 white'>MY CATS</h1>
-          <div style={{ display: 'inline-block' }}>
+          <SearchBox searchChange={this.onSearchChange} />
+          <div className="br3 shadow-5 pt3" style={{ display: 'inline-block', justifyContent: 'center' }} >
             <Background
               clickChange={this.onClickChange}
               colorOneChange={this.onColorOneChange}
@@ -86,7 +87,6 @@ class App extends Component {
               colorTwo={this.state.colorTwo}
             />
           </div>
-          <SearchBox className='tcenter' searchChange={this.onSearchChange} />
           <Scroll>
             <ErrorBoundary>
               <CardList cats={filteredCats} />

@@ -1,20 +1,18 @@
 
 function Background({ clickChange, colorOneChange, colorTwoChange, colorOne, colorTwo }) {
     return (
-        <div className="br3 shadow-5">
+        <div >
             <input
                 className="color1 br3 b--white dim pointer measure-wide"
                 type="color"
                 value={colorOne}
                 onChange={colorOneChange} />
             <input
-
-                className='button1 pt1 br3 ba b--white purple dim pointer'
+                className='button1 pt2 br3 ba b--white purple dim pointer'
                 type='button'
                 value="Random Background"
                 onClick={clickChange} />
             <input
-
                 className="color2 br3 b--white dim pointer"
                 type="color"
                 value={colorTwo}
