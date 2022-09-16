@@ -8,7 +8,7 @@ function Background({ clickChange, colorOneChange, colorTwoChange, colorOne, col
                 value={colorOne}
                 onChange={colorOneChange} />
             <input
-                className='button1 pt2 br3 ba b--white purple dim pointer'
+                className='button1 pt2 br3 ba b--white purple grow pointer'
                 type='button'
                 value="Random Background"
                 onClick={clickChange} />
