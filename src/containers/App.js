@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Scroll from '../components/Scroll';
@@ -7,43 +7,54 @@ import Background from '../components/Background';
 import ErrorBoundary from '../components/ErrorBoundry';
 
 
-class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      cats: [],
-      searchfield: '',
-      colorOne: '#f6f948',
-      colorTwo: '#be47f5',
-    }
-  }
+function App() {
+  const [cats, setCats] = useState([]);
+  const [searchfield, setSearchfield] = useState('');
+  const [colorOne, setColorOne] = useState('#f6f948');
+  const [colorTwo, setColorTwo] = useState('#be47f5');
+  //without hook
+  /*   constructor() {
+      super()
+      this.state = {
+        cats: [],
+        searchfield: '',
+        colorOne: '#f6f948',
+        colorTwo: '#be47f5',
+      }
+    } */
 
-  componentDidMount() {
+  useEffect(() => {
     fetch('https://jsonplaceholder.typicode.com/comments')
       .then(response => response.json())
-      .then(users => { this.setState({ cats: users }) });
-  }
+      .then(comments => { setCats(comments) });
+  }, [colorOne, colorTwo]) // Only re-run the effect if colors change
+  //without hook
+  /*   componentDidMount() {
+      fetch('https://jsonplaceholder.typicode.com/comments')
+        .then(response => response.json())
+        .then(users => { this.setState({ cats: users }) });
+    } */
 
-  makeBackgroundChange = () => {
+  const makeBackgroundChange = () => {
     const css = document.querySelector("h3");
     const body = document.querySelector("body");
-    body.style.background = "linear-gradient(to right top, " + this.state.colorOne + ", " + this.state.colorTwo + ")";
-    css.textContent = this.state.colorOne + " 👈🏻 ColorCode 👉🏻 " + this.state.colorTwo;
+    body.style.background = "linear-gradient(to right top, " + colorOne + ", " + colorTwo + ")";
+    css.textContent = colorOne + " 👈🏻 ColorCode 👉🏻 " + colorTwo;
   }
 
-  onColorOneChange = (event) => {
-    this.setState({ colorOne: event.target.value })
-    document.querySelector(".color2").style.background = this.state.colorOne;
-    this.makeBackgroundChange();
+  const onColorOneChange = (event) => {
+    setColorOne(event.target.value);
+    document.querySelector(".color2").style.background = colorOne;
+    makeBackgroundChange();
   }
 
-  onColorTwoChange = (event) => {
-    this.setState({ colorTwo: event.target.value })
-    document.querySelector(".color1").style.background = this.state.colorTwo;
-    this.makeBackgroundChange();
+  const onColorTwoChange = (event) => {
+    setColorTwo(event.target.value);
+    document.querySelector(".color1").style.background = colorTwo;
+    makeBackgroundChange();
   }
 
-  onClickChange = () => {
+  const onClickChange = () => {
     const letters = "0123456789ABCDEF";
     let color3 = "#";
     let color4 = "#";
@@ -51,50 +62,46 @@ class App extends Component {
       color3 += letters[Math.floor(Math.random() * 16)];
       color4 += letters[Math.floor(Math.random() * 16)];
     }
-
-    this.setState({ colorOne: color3 });
-    this.setState({ colorTwo: color4 });
+    setColorOne(color3);
+    setColorTwo(color4);
     document.querySelector(".color1").style.background = color4;
     document.querySelector(".color2").style.background = color3;
-    this.makeBackgroundChange();
+    makeBackgroundChange();
   }
 
-  onSearchChange = (event) => {
-    this.setState({ searchfield: event.target.value })
+  const onSearchChange = (event) => {
+    setSearchfield(event.target.value);
   }
 
-  render() {
-    const { cats, searchfield } = this.state;
-    const filteredCats = cats.filter(cat =>
-      cat.name.toLowerCase().includes(searchfield.toLowerCase())
-    )
+  const filteredCats = cats.filter(cat =>
+    cat.name.toLowerCase().includes(searchfield.toLowerCase())
+  )
 
-    document.querySelector("body").style.background = "linear-gradient(to right, " + this.state.colorOne + ", " + this.state.colorTwo + ")";
+  document.querySelector("body").style.background = "linear-gradient(to right, " + colorOne + ", " + colorTwo + ")";
 
-    return !cats.length ?
-      <p>...</p> :
-      (
-        <div className='tc pa1'>
-          <h2 className='white f4'>{new Date().toLocaleTimeString()} </h2>
-          <h1 className='f1 white'>MY CATS</h1>
-          <SearchBox searchChange={this.onSearchChange} />
-          <div className="br3 shadow-5 pt3" style={{ display: 'inline-block', justifyContent: 'center' }} >
-            <Background
-              clickChange={this.onClickChange}
-              colorOneChange={this.onColorOneChange}
-              colorTwoChange={this.onColorTwoChange}
-              colorOne={this.state.colorOne}
-              colorTwo={this.state.colorTwo}
-            />
-          </div>
-          <Scroll>
-            <ErrorBoundary>
-              <CardList cats={filteredCats} />
-            </ErrorBoundary>
-          </Scroll>
+  return !cats.length ?
+    <p>...</p> :
+    (
+      <div className='tc pa1'>
+        <h2 className='white f4'>{new Date().toLocaleTimeString()} </h2>
+        <h1 className='f1 white'>MY CATS</h1>
+        <SearchBox searchChange={onSearchChange} />
+        <div className="br3 shadow-5 pt3" style={{ display: 'inline-block', justifyContent: 'center' }} >
+          <Background
+            clickChange={onClickChange}
+            colorOneChange={onColorOneChange}
+            colorTwoChange={onColorTwoChange}
+            colorOne={colorOne}
+            colorTwo={colorTwo}
+          />
         </div>
-      );
-  }
+        <Scroll>
+          <ErrorBoundary>
+            <CardList cats={filteredCats} />
+          </ErrorBoundary>
+        </Scroll>
+      </div>
+    );
 }
 
 export default App;
