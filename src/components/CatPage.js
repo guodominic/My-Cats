@@ -19,9 +19,13 @@ const CatPage = ({ cats }) => {
     }
 
     useEffect(() => {
+        let newId = id - 1;
+        if (id > 97) {
+            newId = Math.floor(Math.random() * 98)
+        }
         fetch('https://catfact.ninja/breeds?limit=100')
             .then(response => response.json())
-            .then(info => { setThisCat(info.data[id]) });
+            .then(info => { setThisCat(info.data[newId]) });
     }, [id])
 
     const newCatFact = () => {
@@ -33,7 +37,6 @@ const CatPage = ({ cats }) => {
     useEffect(() => {
         newCatFact()
     }, [id])
-
 
     return (
         <div>
@@ -52,9 +55,9 @@ const CatPage = ({ cats }) => {
                 <div className='f7 bg-orange purple tc catInfo shadow-5 pointer'
                     onClick={changeGender}
                 >
-                    <h1 >About {cats[id].name.substring(0, 14)}</h1>
+                    <h1 >About {cats[id - 1].name.substring(0, 14)}</h1>
                     <h2>
-                        The breed of {cats[id].name.substring(0, 14)} is {thisCat.breed}, {gender} country is {thisCat.country}
+                        The breed of {cats[id - 1].name.substring(0, 14)} is {thisCat.breed}, {gender} country is {thisCat.country}
                         and and {gender} oringin is {thisCat.origin};  {gender} coat is {thisCat.coat} with pattern of {thisCat.pattern}.
                     </h2>
                 </div>
