@@ -5,7 +5,12 @@ import Scroll from '../components/Scroll';
 import './App.css';
 import Background from '../components/Background';
 import ErrorBoundary from '../components/ErrorBoundry';
-
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+import CatPage from '../components/CatPage';
 
 function App() {
   const [cats, setCats] = useState([]);
@@ -79,28 +84,41 @@ function App() {
 
   document.querySelector("body").style.background = "linear-gradient(to right, " + colorOne + ", " + colorTwo + ")";
 
-  return !cats.length ?
-    <p>...</p> :
+
+  const dateWithouthSecond = new Date().toLocaleTimeString(navigator.language, { hour: '2-digit', minute: '2-digit' });
+
+
+  return !cats.length
+    ?
+    <p>...</p>
+    :
     (
-      <div className='tc pa1'>
-        <h2 className='white f4'>{new Date().toLocaleTimeString()} </h2>
-        <h1 className='f1 white'>MY CATS</h1>
-        <SearchBox searchChange={onSearchChange} />
-        <div className="br3 shadow-5 pt3" style={{ display: 'inline-block', justifyContent: 'center' }} >
-          <Background
-            clickChange={onClickChange}
-            colorOneChange={onColorOneChange}
-            colorTwoChange={onColorTwoChange}
-            colorOne={colorOne}
-            colorTwo={colorTwo}
-          />
+      <Router>
+        <div className='tc pa1'>
+          <div style={{ "display": 'flex', 'justifyContent': 'center' }}>
+            <h2 className='white f4' style={{ 'position': 'absolute', 'right': '10px' }}>{dateWithouthSecond} </h2>
+            <h1 className='f1 white'>MY CATS</h1>
+          </div>
+          <SearchBox searchChange={onSearchChange} />
+          <div className="br3 shadow-5 pt3" style={{ display: 'inline-block', justifyContent: 'center' }} >
+            <Background
+              clickChange={onClickChange}
+              colorOneChange={onColorOneChange}
+              colorTwoChange={onColorTwoChange}
+              colorOne={colorOne}
+              colorTwo={colorTwo}
+            />
+          </div>
+          <Scroll>
+            <ErrorBoundary>
+              <Routes>
+                <Route path="/My-Cats" element={<CardList cats={filteredCats} />} />
+                <Route path="/My-Cats/:id" element={<CatPage cats={cats} />} />
+              </Routes>
+            </ErrorBoundary>
+          </Scroll>
         </div>
-        <Scroll>
-          <ErrorBoundary>
-            <CardList cats={filteredCats} />
-          </ErrorBoundary>
-        </Scroll>
-      </div>
+      </Router>
     );
 }
 

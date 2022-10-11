@@ -5,15 +5,13 @@ function CardList({ cats }) {
   return (
     <div>
       {
-        cats.map((user, i) => {
-          /*           if (true) {
-                      throw new Error('CardList is not working!!');
-                    } */
+        cats.map((cat) => {
           return (
             <Card
-              id={cats[i].id}
-              name={cats[i].name.substring(0, 14)}
-              email={cats[i].email.substring(0, 22)}
+              key={cat.id}
+              id={cat.id}
+              name={cat.name.substring(0, 14)}
+              email={cat.email.substring(0, 22)}
             />
           );
         })
