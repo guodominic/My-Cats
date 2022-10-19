@@ -47,7 +47,7 @@ const CatPage = ({ cats }) => {
             >
                 <div
                     onClick={() => navigate('/My-Cats')}
-                    className='bg-green br4 pa3 mt4 mb3 ml3 mr2 shadow-5 pointer'
+                    className='br4 pa3 mt4 mb3 ml3 mr2 shadow-5 pointer'
                 >
                     <img alt='cats' src={`https://robohash.org/${id}?set=set4`} width='200' height='200' />
                 </div>
