@@ -94,7 +94,7 @@ function App() {
     :
     (
       <Router>
-        <div className='tc pa1'>
+        <div className='tc pa1 app'>
           <div style={{ "display": 'flex', 'justifyContent': 'center' }}>
             <h2 className='white f4' style={{ 'position': 'absolute', 'right': '10px' }}>{dateWithouthSecond} </h2>
             <h1 className='f1 white'>MY CATS</h1>

@@ -55,20 +55,20 @@ const CatPage = ({ cats }) => {
                 <div className='f7 bg-orange purple tc catInfo shadow-5 pointer'
                     onClick={changeGender}
                 >
-                    <h1 >About {cats[id - 1].name.substring(0, 14)}</h1>
-                    <h2>
+                    <h3 className='candyFont'>About {cats[id - 1].name.substring(0, 14)}</h3>
+                    <h3>
                         The breed of {cats[id - 1].name.substring(0, 14)} is {thisCat.breed}, {gender} country is {thisCat.country}
                         and and {gender} oringin is {thisCat.origin};  {gender} coat is {thisCat.coat} with pattern of {thisCat.pattern}.
-                    </h2>
+                    </h3>
                 </div>
             </Split>
             <div className='f7 bg-blue yellow tc catInfo grow ma5 shadow-5 pointer'
                 onClick={newCatFact}
             >
-                <h1>Fun Fact about Cats</h1>
-                <h2>
+                <h3 className='candyFont'>Fun Fact about Cats</h3>
+                <h3>
                     Random Cat Fact: {catFact.fact}
-                </h2>
+                </h3>
             </div>
         </div>
     )
